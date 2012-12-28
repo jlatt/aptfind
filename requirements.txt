@@ -1,0 +1,10 @@
+Flask==0.9
+Flask-SQLAlchemy==0.16
+Jinja2==2.6
+PIL==1.1.7
+SQLAlchemy==0.8.0b2
+Werkzeug==0.8.3
+distribute==0.6.31
+git-remote-helpers==0.1.0
+virtualenv==1.8.4
+wsgiref==0.1.2
