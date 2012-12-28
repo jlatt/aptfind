@@ -25,8 +25,8 @@
         return new google.maps.LatLng(lat, lng);
     };
 
-    function badPolygon() {
-        return new google.maps.Polygon(_.extend({'path': arguments}, BAD_POLYGON_OPTIONS));
+    function polygon(map, options, path) {
+        return new google.maps.Polygon(_.extend({'path': path, 'map': map}, options));
     };
 
     var SAN_MATEO = ll(37.562992, -122.325525);
@@ -72,18 +72,34 @@
         app.polygons.push(polygon);
     });
 
-    
     // north central, san mateo
-    badPolygon(
+    polygon(map, BAD_POLYGON_OPTIONS, [
         ll(37.57073925708963, -122.31443881988525),
         ll(37.58386779351807, -122.32877254486084),
         ll(37.57468486365453, -122.34276294708252),
         ll(37.57203180640091, -122.33864307403564),
-        ll(37.56995691371416, -122.3351240158081),
+        ll(37.56995691371416, -122.33512401580810),
         ll(37.56764385045342, -122.33066082000732),
         ll(37.56570490384997, -122.32812881469727),
         ll(37.56359581690638, -122.32628345489502),
         ll(37.56322161782477, -122.32598304748535)
-    ).setMap(map);
+    ]);
+
+    $body.on('submit', 'form.url', function(e) {
+        e.preventDefault();
+        var response = $.ajax(this.action, {'type': 'post', 'data': $(this).serialize()});
+        response.done(function(d) {
+            var marker = new google.maps.Marker({
+                'map': map,
+                'position': ll(d.lat, d.lng)
+            });
+            var url = d.url;
+            google.maps.event.addListener(marker, 'click', function() {
+                window.open(url);
+            });
+        });
+        this.reset();
+        document.activeElement.blur();
+    });
 
 })(this.app = this.app || {});

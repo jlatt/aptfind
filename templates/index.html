@@ -14,12 +14,17 @@
     <div id="screen">
       <div id="controls">
         <span>layer:</span>
-        <label><input type="checkbox" name="layer" value="transit"> transit</label>
-        <label><input type="checkbox" name="layer" value="traffic"> traffic</label>
-        <label><input type="checkbox" name="layer" value="bicycling"> bicycling</label>
+        <label class="checkbox"><input type="checkbox" name="layer" value="transit"> transit</label>
+        <label class="checkbox"><input type="checkbox" name="layer" value="traffic"> traffic</label>
+        <label class="checkbox"><input type="checkbox" name="layer" value="bicycling"> bicycling</label>
 
         <span>draw:</span>
-        <label><input type="checkbox" name="draw" value="POLYGON"> polygon</label>
+        <label class="checkbox"><input type="checkbox" name="draw" value="POLYGON"> polygon</label>
+
+        <form method="post" action="/url" class="url">
+          <input name="url" placeholder="craigslist url">
+          <button type="submit">Add</button>
+        </form>
       </div>
       <div id="map">
       </div>

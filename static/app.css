@@ -27,14 +27,18 @@ html {
 
   color: #fff;
   background: #6199df;
-  box-shadow: 0 0 2em 0.5em #666;
+  box-shadow: 0 -0.5em 2em 0.5em #666;
 }
 
-label {
+label.checkbox {
   padding: 0.1em 0.3em;
 
   font-weight: bold;
   border: 1px solid #fff;
   border-radius: 0.5em;
   cursor: pointer;
+}
+
+#controls form {
+  display: inline-block;
 }
