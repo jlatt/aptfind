@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>aptfind</title>
+
+    <link rel="stylesheet" href="/static/normalize.css">
+    <link rel="stylesheet" href="/static/app.css">
+  </head>
+
+  <body>
+    <div id="screen">
+      <div id="controls">
+        <span>layer:</span>
+        <label><input type="checkbox" name="layer" value="transit"> transit</label>
+        <label><input type="checkbox" name="layer" value="traffic"> traffic</label>
+        <label><input type="checkbox" name="layer" value="bicycling"> bicycling</label>
+
+        <span>draw:</span>
+        <label><input type="checkbox" name="draw" value="POLYGON"> polygon</label>
+      </div>
+      <div id="map">
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvQF1FyyVGAkBDiK082cFWEqSXqn18H20&amp;sensor=false&libraries=drawing"></script>
+    <script src="/static/underscore.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
